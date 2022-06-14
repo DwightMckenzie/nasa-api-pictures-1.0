@@ -21,31 +21,6 @@ let crdBdy = '';
 let crdTxt = '';
 let excrpt = '';
 
-
-
-// remove excerpt
-// function readMore(e) {
-//   e.preventDefault;
-//   console.log('read more');
-
-//   // origninal text from read more befoe excerpt need brought over some how
-
-//   console.log(e);
-
-
-//   // crdTxt = e.previousSibling;
-
-//   // switch variable and open bdy text
-//   // excrpt = crdTxt.substring(0, 10000);
-
-//   // apply body text
-//   // crdTxt.textContent = excrpt;
-
-//   // set read more button
-//   // btnRead.setAttribute('onclick', 'readLess(this)');
-//   // btnRead.textContent = 'Read Less...';
-// }
-
 // apply excerpt
 function tggleExcerpt(page) {
   console.log('read less');
@@ -97,8 +72,6 @@ function createDOMNodes(page) {
   const currentArray = page === 'results' ? resultsArray : Object.values(favorites);
   // const currentArray = page === 'result' ? Object.values(favorites) : resultsArray;
 
-  // console.log('current array ', page, currentArray);
-
   currentArray.forEach((result) => {
     // card container
     const card = document.createElement('div');
@@ -145,16 +118,6 @@ function createDOMNodes(page) {
     const cardText = document.createElement('p');
     cardText.textContent = result.explanation;
 
-
-    
-    // excerpt text
-    const btnExcrpt = document.createElement('p');
-    btnExcrpt.setAttribute('class', 'clickable btn');
-    btnExcrpt.setAttribute('onclick', 'tggleExcerpt(this)');
-    btnExcrpt.textContent = 'Read More';
-
-
-
     // footer container
     const footer = document.createElement('small');
     footer.classList.add('text-muted');
@@ -176,10 +139,6 @@ function createDOMNodes(page) {
     imagesContainer.appendChild(card);
 
   });
-
-
-  // trigger excerpt
-  tggleExcerpt(page);
 
 }
 
@@ -247,8 +206,5 @@ function removeFavorite(itemUrl) {
   }
 }
 
-
-
 // onload
-// excerptTxt();
 getNasaPictures();
