@@ -12,48 +12,6 @@ const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&count=${co
 let resultsArray = [];
 let favorites = {};
 
-// mine
-const excrptLmt = 75;
-let btnRead = document.querySelector('.btn');
-
-let origResult = '';
-let crdBdy = '';
-let crdTxt = '';
-let excrpt = '';
-
-// apply excerpt
-function tggleExcerpt(page) {
-  console.log('read less');
-
-  const results = 'page';
-
-  // convert to array 
-  const a = imagesContainer.children;
-  const b = Array.from(a);
-  
-  // initialize excerpt on each paragraph
-  b.forEach((e, i) => {
-    let crdBdy = e.children[1];
-    let crdTxt = crdBdy.children[2].textContent;
-    let hTxt = crdTxt;
-
-    console.log(hTxt);
-
-    // compare full paragraph to excerpt limit
-    if (crdTxt.length > excrptLmt) {
-
-      // apply excerpt
-
-      excrpt = crdTxt.substring(0, excrptLmt);
-
-      // update text
-      crdBdy.children[2].textContent = excrpt;
-    }
-
-  });
-
-}
-
 function showContent(page) {
   window.scrollTo({ top: 0, behavior: 'instant'});
   loader.classList.add('hidden');
